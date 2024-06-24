@@ -194,7 +194,7 @@ interface TailProperties {
  *
  * Use React.createElement to make the ReactElement type, see {@link https://react.dev/reference/react/createElement#creating-an-element-without-jsx | creating an element without jsx} from the official React documentation.
  */
-type ReactNode = ReactElement | string | number | null | undefined | boolean | ReactNode[];
+type ReactNode = ReactElement | string | number | null | undefined | boolean | Iterable<ReactNode>;
 
 /**
  * @public
@@ -203,7 +203,7 @@ type ReactNode = ReactElement | string | number | null | undefined | boolean | R
  * See {@link https://react.dev/reference/react/createElement#creating-an-element-without-jsx | creating an element without jsx} from the official React documentation.
  */
 interface ReactElement {
-  type: string | ((props: any) => ReactElement | null) | (new (props: any) => object);
+  type: string | ((props: any) => ReactNode) | (new (props: any) => object);
   props: any;
   key: string | number | null;
 }
